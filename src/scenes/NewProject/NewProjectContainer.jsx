@@ -1,9 +1,10 @@
 import React from 'react';
+import { Container } from '../../shared/styles';
 
 const NewProjectContainer = () => (
-  <div>
+  <Container>
     <h1>Hello World!</h1>
-  </div>
+  </Container>
 );
 
 export default NewProjectContainer;
