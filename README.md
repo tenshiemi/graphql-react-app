@@ -17,13 +17,7 @@ A simple project management application built with React/Redux.
 
 1. `yarn start`
 
-# Tests
-
-1. `yarn test`
-
 # Libraries
-
-*[Enzyme](https://github.com/airbnb/enzyme)* - Testing utility to make it easier to test React Components.
 
 *[Prettier](https://github.com/prettier/prettier)* - Auto-formatter for JS code.
 

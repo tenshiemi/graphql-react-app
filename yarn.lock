@@ -260,6 +260,10 @@ assert@^1.1.1:
   dependencies:
     util "0.10.3"
 
+"assignment-helpers@https://github.com/TernPro/assignment-helpers.git":
+  version "1.0.1"
+  resolved "https://github.com/TernPro/assignment-helpers.git#7717ed5566d19ecc6691195ccb4e022df80919db"
+
 ast-types-flow@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
