@@ -26,7 +26,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   width: 100%;
 }
 
-.CancelTask {
+.Cancel {
   cursor: pointer;
 }
 
@@ -108,6 +108,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .TextArea {
+  border-style: inset;
   font-size: 13px;
   height: 82px;
   max-width: 432px;

@@ -15,6 +15,10 @@ class TaskForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.nameInput.setCustomValidity('Your task must have a name.');
+  }
+
   handleChange(event) {
     const target = event.target;
     const value = target.value;
@@ -47,6 +51,9 @@ class TaskForm extends React.Component {
               name="name"
               onChange={this.handleChange}
               placeholder="Give your task a name"
+              ref={input => {
+                this.nameInput = input;
+              }}
               required
               type="text"
               value={this.state.name}
@@ -103,7 +110,7 @@ class TaskForm extends React.Component {
           </div>
           <div className="group">
             <div className="TaskActions">
-              <a className="CancelTask" onClick={this.props.toggleTaskView}>
+              <a className="Cancel" onClick={this.props.toggleTaskView}>
                 cancel
               </a>
               <input className="SaveTaskButton" type="submit" value="SAVE" />

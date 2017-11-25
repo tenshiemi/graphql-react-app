@@ -21,6 +21,10 @@ class NewProjectForm extends React.Component {
     this.toggleTaskView = this.toggleTaskView.bind(this);
   }
 
+  componentDidMount() {
+    this.nameInput.setCustomValidity('Your project must have a name.');
+  }
+
   deleteTask(event) {
     event.preventDefault();
 
@@ -67,7 +71,7 @@ class NewProjectForm extends React.Component {
     return (
       <div>
         <h2>Fill out your project details</h2>
-        <form>
+        <form id="projectForm" onSubmit={this.handleSubmit}>
           <label>
             <p className="Label">Name</p>
             <input
@@ -75,6 +79,9 @@ class NewProjectForm extends React.Component {
               name="name"
               onChange={this.handleChange}
               placeholder="Give your project a name"
+              ref={input => {
+                this.nameInput = input;
+              }}
               required
               type="text"
               value={this.state.name}
@@ -119,10 +126,15 @@ class NewProjectForm extends React.Component {
         )}
         <input
           className="SubmitButton"
+          form="projectForm"
+          name="submit"
           onSubmit={this.handleSubmit}
           type="submit"
           value="CREATE PROJECT"
         />
+        <a className="Cancel" onClick={this.props.toggleTaskView}>
+          cancel
+        </a>
       </div>
     );
   }
