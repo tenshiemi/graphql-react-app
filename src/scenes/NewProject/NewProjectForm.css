@@ -1,0 +1,125 @@
+input[type='radio'] {
+  display: none;
+}
+
+input[type='checkbox'] + label p {
+  border: 1px solid rgba(255, 127, 65, 1);
+  display: inline-block;
+  height: 19px;
+  width: 19px;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+}
+
+.AddTaskButton {
+  border: 1px solid rgba(255, 127, 65, 1);
+  border-radius: 88px;
+  color: rgba(255, 127, 65, 1);
+  cursor: pointer;
+  font-family: 'Arial-BoldMT', 'Arial Bold', 'Arial';
+  font-size: 14px;
+  height: 40px;
+  margin: 24px 0 12px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.CancelTask {
+  cursor: pointer;
+}
+
+.DeleteTask {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+.Label {
+  font-size: 14px;
+  margin: 14px 0 8px 0;
+}
+
+.RadioInput {
+  background-color: white;
+  border: 1px solid #777777;
+  border-radius: 88px;
+  color: #777777;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 11px;
+  font-family: 'Arial';
+  margin: 0 12px 20px 0;
+  padding: 9px 0;
+  text-align: center;
+  width: 115px;
+}
+
+.RadioSelected {
+  border: 1px solid #009cbd;
+  color: #009cbd;
+}
+
+.SaveTaskButton {
+  background-color: rgba(255, 127, 65, 1);
+  border: none;
+  border-radius: 88px;
+  color: white;
+  cursor: pointer;
+  font-family: 'Arial-BoldMT', 'Arial Bold', 'Arial';
+  font-size: 14px;
+  height: 40px;
+  margin-left: 12px;
+  text-align: center;
+  width: 93px;
+}
+
+.SubmitButton {
+  background-color: rgba(255, 127, 65, 1);
+  border: none;
+  border-radius: 88px;
+  color: white;
+  cursor: pointer;
+  font-family: 'Arial-BoldMT', 'Arial Bold', 'Arial';
+  font-size: 14px;
+  height: 40px;
+  margin: 12px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.TaskForm {
+  background-color: #f2f2f2;
+  margin: 12px 0;
+  padding: 10px;
+}
+
+.TaskActions {
+  float: right;
+}
+
+.TaskItem {
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.TextArea {
+  font-size: 13px;
+  height: 82px;
+  max-width: 432px;
+  text-align: left;
+  width: 100%;
+}
+
+.TextInput {
+  color: #777777;
+  font-family: 'Arial';
+  font-size: 13px;
+  height: 32px;
+  max-width: 432px;
+  width: 100%;
+}

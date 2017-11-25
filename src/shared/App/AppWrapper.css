@@ -1,0 +1,35 @@
+a {
+  color: #777777;
+}
+
+button:focus,
+input:focus {
+  outline: 0;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #777777;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #777777;
+}
+
+.container {
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 12px;
+}
+
+.group:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.AppWrapper {
+  color: #333333;
+  font-family: Arial;
+}

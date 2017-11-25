@@ -1,22 +1,15 @@
 import React from 'react';
-import { Div, Img } from 'glamorous';
-import { Container } from '../styles';
 import Nav from './Nav';
 import logo from './logo.png';
+import './Header.css';
 
 const Header = () => (
-  <Div borderBottom="1px solid black" height={60} textAlign="center">
-    <Container>
+  <div className="Header">
+    <div className="container">
       <Nav />
-      <Img
-        src={logo}
-        alt="Slope logo"
-        height={42}
-        margin="9px auto"
-        verticalAlign="middle"
-      />
-    </Container>
-  </Div>
+      <img className="Logo" src={logo} alt="Slope logo" />
+    </div>
+  </div>
 );
 
 export default Header;
