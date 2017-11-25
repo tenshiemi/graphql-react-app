@@ -1,6 +1,7 @@
 import React from 'react';
 import TaskForm from './TaskForm';
 import TaskItem from './TaskItem';
+import createProject from '../../utils/createProject';
 import './NewProjectForm.css';
 
 class NewProjectForm extends React.Component {
@@ -13,19 +14,9 @@ class NewProjectForm extends React.Component {
       showTasks: false,
       tasks: []
     };
-
-    this.deleteTask = this.deleteTask.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleTaskSubmit = this.handleTaskSubmit.bind(this);
-    this.toggleTaskView = this.toggleTaskView.bind(this);
   }
 
-  componentDidMount() {
-    this.nameInput.setCustomValidity('Your project must have a name.');
-  }
-
-  deleteTask(event) {
+  deleteTask = event => {
     event.preventDefault();
 
     const taskIndex = event.target.getAttribute('data-index');
@@ -35,37 +26,59 @@ class NewProjectForm extends React.Component {
         .slice(0, taskIndex)
         .concat(this.state.tasks.slice(taskIndex + 1))
     });
-  }
+  };
 
-  handleChange(event) {
+  handleChange = event => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
 
+    if (name === 'name' && !value) {
+      this.nameInput.setCustomValidity('Your project must have a name.');
+    } else {
+      this.nameInput.setCustomValidity('');
+    }
+
     this.setState({
       [name]: value
     });
-  }
+  };
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+  handleSubmit = event => {
     event.preventDefault();
-  }
 
-  handleTaskSubmit(newTask) {
+    fetch('http://40.87.67.195/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(
+        createProject({
+          name: this.state.name,
+          description: this.state.description,
+          collectionId: this.props.id,
+          tasks: this.state.tasks
+        })
+      )
+    })
+      .then(result => result.json())
+      .then(json => {
+        this.props.history.push('/');
+      });
+  };
+
+  handleTaskSubmit = newTask => {
     this.setState({
       showTasks: !this.state.showTasks,
       tasks: [...this.state.tasks, newTask]
     });
-  }
+  };
 
-  toggleTaskView(event) {
+  toggleTaskView = event => {
     event.preventDefault();
 
     this.setState({
       showTasks: !this.state.showTasks
     });
-  }
+  };
 
   render() {
     return (

@@ -10,30 +10,29 @@ class TaskForm extends React.Component {
       name: '',
       type: ''
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    this.nameInput.setCustomValidity('Your task must have a name.');
-  }
-
-  handleChange(event) {
+  handleChange = event => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
 
+    if (name === 'name' && !value) {
+      this.nameInput.setCustomValidity('Your task must have a name.');
+    } else {
+      this.nameInput.setCustomValidity('');
+    }
+
     this.setState({
       [name]: value
     });
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
 
     this.props.handleTaskSubmit(this.state);
-  }
+  };
 
   render() {
     const contentClasses =
@@ -43,7 +42,7 @@ class TaskForm extends React.Component {
 
     return (
       <div className="TaskForm">
-        <form onSubmit={this.handleSubmit}>
+        <form id="taskForm" onSubmit={this.handleSubmit}>
           <label>
             <p className="Label">Name</p>
             <input
@@ -84,10 +83,18 @@ class TaskForm extends React.Component {
           <div className="group">
             <label>
               <p className="Label">Task type</p>
+              <input
+                id="dummy"
+                name="type"
+                required
+                style={{ opacity: 0 }}
+                type="radio"
+              />
               <label htmlFor="content">
                 <span className={contentClasses}>CONTENT</span>
               </label>
               <input
+                className="hide"
                 id="content"
                 name="type"
                 onChange={this.handleChange}
@@ -99,6 +106,7 @@ class TaskForm extends React.Component {
                 <span className={todoClasses}>TO-DO</span>
               </label>
               <input
+                className="hide"
                 id="todo"
                 name="type"
                 onChange={this.handleChange}
@@ -113,7 +121,12 @@ class TaskForm extends React.Component {
               <a className="Cancel" onClick={this.props.toggleTaskView}>
                 cancel
               </a>
-              <input className="SaveTaskButton" type="submit" value="SAVE" />
+              <input
+                className="SaveTaskButton"
+                form="taskForm"
+                type="submit"
+                value="SAVE"
+              />
             </div>
           </div>
         </form>

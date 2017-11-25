@@ -10,7 +10,7 @@ const AppWrapper = () => (
     <Header />
     <Switch>
       <Route exact path="/" component={CollectionsContainer} />
-      <Route exact path="/new/:id" component={NewProjectContainer} />
+      <Route path="/new/:id" component={NewProjectContainer} />
     </Switch>
   </div>
 );
