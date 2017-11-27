@@ -47,17 +47,17 @@ class NewProjectForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
+    const query = createProject({
+      name: this.state.name,
+      description: this.state.description,
+      collectionId: this.props.id,
+      tasks: this.state.tasks
+    });
+
     fetch('http://40.87.67.195/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(
-        createProject({
-          name: this.state.name,
-          description: this.state.description,
-          collectionId: this.props.id,
-          tasks: this.state.tasks
-        })
-      )
+      body: JSON.stringify(query)
     })
       .then(result => result.json())
       .then(json => {
