@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Collection = ({ collection }) => (
   <div className="Collection">
-    <Link to={`/new/${collection.id}`}>{collection.name}</Link>
+    {collection.name} <Link to={`/new/${collection.id}`}>New Project</Link>
   </div>
 );
 
